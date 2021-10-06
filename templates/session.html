@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+        <p>{{ object.film }}</p>
+        <p>Зал:{{ object.hall }}</p>
+        <p>Начало: {{ object.time_start }}</p>
+        <p>Цена: {{ object.price }}</p> 
+        {% if object.hall.size > 0 %}
+            Количество свободных мест: {{ object.quantity }}
+            <form method="post" action="{% url 'buy_ticket' object.pk %}">
+                {% csrf_token %}
+                {{ form }}
+                <button type="submit" value="Buy" class="btn btn-success">Купить</button>
+            </form>
+        {% endif %}
+        <ul class="messages">
+            {% for message in messages %}
+            <li
+                    {% if message.tags %} class="{{ message.tags }}" {% endif %} > {{ message }}
+            </li>
+            {% endfor %}
+        </ul>
+{% endblock %}
+
+{% block footer %}
+{% endblock %}

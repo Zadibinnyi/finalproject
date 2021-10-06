@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div>
+    {% for object in object_list %}
+    <div class="list">
+        <a href="{% url 'update_hall' object.pk %}"> {{ object.name }} </a> <br>
+        <p>Размер: {{ object.size }}</p>
+    </div>
+        {% endfor %}
+</div>
+{% endblock %}

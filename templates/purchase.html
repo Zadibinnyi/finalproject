@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+        <p>Всего потрачено: {{ request.user.sum }}</p>
+        {% for purchase in object_list %}
+            {% if purchase.user == request.user %}
+                <div>
+                    <p>Фильм: {{ purchase.session.film }}</p>
+                    <p>Билетов: {{ purchase.quantity }}</p>
+                    <p>Дата: {{ purchase.session.date }}</p>
+                    <p>Время: {{ purchase.session.time_start }}</p>
+                </div>
+            {% endif %}
+        {% endfor %}
+{% endblock %}
+
+{% block footer %}
+{% endblock %}
