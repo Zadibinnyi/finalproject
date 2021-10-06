@@ -4,7 +4,7 @@ from django.db import models
 from cinema.exception import NotZeroCount, NotMuchCount, DateError, SessionError
 
 from rest_framework.authtoken.models import Token
-
+from rest_framework import exceptions
 
 class Customer(AbstractUser):
     sum = models.IntegerField(default=0)
