@@ -1,10 +1,7 @@
-from django.db.models import QuerySet
 from datetime import date
 from datetime import timedelta
-from django.contrib import messages
 
 from rest_framework import viewsets
-from rest_framework.generics import CreateAPIView
 from rest_framework.permissions import IsAuthenticated, IsAdminUser, AllowAny
 
 
